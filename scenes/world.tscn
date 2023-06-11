@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dcjjl1bi5x18f" path="res://art/TilesetNature.png" id="2_4srsr"]
 [ext_resource type="Texture2D" uid="uid://bbepnrvf5qhak" path="res://art/flower_sprite.png" id="3_nau5g"]
 [ext_resource type="Script" path="res://scenes/follow_cam.gd" id="5_pbs35"]
-[ext_resource type="PackedScene" uid="uid://7kpab8qoomyg" path="res://enemies/enemy.tscn" id="6_073hx"]
+[ext_resource type="PackedScene" uid="uid://7kpab8qoomyg" path="res://enemies/slime.tscn" id="6_073hx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xg4yr"]
 texture = ExtResource("1_x82te")
@@ -2019,7 +2019,8 @@ texture = ExtResource("3_nau5g")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0.5, -6, -3, 5.5, -3, 8, 0.5, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_nbo0i"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 terrain_set_0/mode = 1
 terrain_set_0/terrain_0/name = "sand"
 terrain_set_0/terrain_0/color = Color(0.501961, 0.152941, 0.454902, 1)
@@ -2066,16 +2067,23 @@ limit_top = 0
 script = ExtResource("5_pbs35")
 tilemap = NodePath("../..")
 
-[node name="enemy" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("6_073hx")]
+[node name="slime3" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("6_073hx")]
 position = Vector2(152, 88)
 endPoint = NodePath("Marker2D")
 
-[node name="Marker2D" type="Marker2D" parent="TileMap/enemy"]
-position = Vector2(27, 26)
+[node name="Marker2D" type="Marker2D" parent="TileMap/slime3"]
+position = Vector2(32, 38)
 
-[node name="enemy2" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("6_073hx")]
+[node name="slime" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("6_073hx")]
+position = Vector2(175, 216)
+endPoint = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/slime"]
+position = Vector2(-64, 0)
+
+[node name="slime2" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("6_073hx")]
 position = Vector2(209, 35)
 endPoint = NodePath("Marker2D")
 
-[node name="Marker2D" type="Marker2D" parent="TileMap/enemy2"]
-position = Vector2(1, 29)
+[node name="Marker2D" type="Marker2D" parent="TileMap/slime2"]
+position = Vector2(0, 36)
