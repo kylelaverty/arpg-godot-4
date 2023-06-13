@@ -2067,6 +2067,7 @@ position = Vector2(115, 60)
 position = Vector2(0, 3)
 limit_left = 0
 limit_top = 0
+position_smoothing_speed = 10.0
 script = ExtResource("5_pbs35")
 tilemap = NodePath("../..")
 
